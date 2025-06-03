@@ -1,5 +1,0 @@
-# Add your project dependencies here
-pandas
-numpy
-matplotlib
-scikit-learn
