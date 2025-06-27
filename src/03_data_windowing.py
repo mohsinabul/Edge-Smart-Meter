@@ -40,11 +40,16 @@ X_train, y_train = create_sliding_windows(train_df, input_steps=48, output_steps
 X_val, y_val     = create_sliding_windows(val_df, input_steps=48, output_steps=12)
 X_test, y_test   = create_sliding_windows(test_df, input_steps=48, output_steps=12)
 
+
 print("Train windows:", X_train.shape, y_train.shape)
 print("Validation windows:", X_val.shape, y_val.shape)
 print("Test windows:", X_test.shape, y_test.shape)
 
-# Saving as .npz for modeling
-np.savez_compressed(r'G:\My Drive\EdgeMeter_AI\Data\processed\train_windows.npz', X_train=X_train, y_train=y_train)
-np.savez_compressed(r'G:\My Drive\EdgeMeter_AI\Data\processed\val_windows.npz', X_val=X_val, y_val=y_val)
-np.savez_compressed(r'G:\My Drive\EdgeMeter_AI\Data\processed\test_windows.npz', X_test=X_test, y_test=y_test)
+
+# Saving as .npy for modeling
+np.save(r'G:\My Drive\EdgeMeter_AI\Data\processed\X_train.npy', X_train)
+np.save(r'G:\My Drive\EdgeMeter_AI\Data\processed\y_train.npy', y_train)
+np.save(r'G:\My Drive\EdgeMeter_AI\Data\processed\X_val.npy', X_val)
+np.save(r'G:\My Drive\EdgeMeter_AI\Data\processed\y_val.npy', y_val)
+np.save(r'G:\My Drive\EdgeMeter_AI\Data\processed\X_test.npy', X_test)
+np.save(r'G:\My Drive\EdgeMeter_AI\Data\processed\y_test.npy', y_test)
