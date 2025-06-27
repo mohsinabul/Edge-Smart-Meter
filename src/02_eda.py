@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jun 21 2025
-Exploratory Data Analysis for Smart Meter Dataset
+
 @author: abul mohsin
 """
 from sklearn.preprocessing import StandardScaler
