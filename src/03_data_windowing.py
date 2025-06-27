@@ -10,18 +10,7 @@ import pandas as pd
 
 # Defining a window function
 def create_sliding_windows(df, input_steps=48, output_steps=12):
-    """
-    Create sliding windows for time series forecasting.
 
-    Parameters:
-        df : DataFrame with ['DateTime', 'MeterID', 'Consumption']
-        input_steps : Number of past time steps (48 = past 24h for 30-min intervals)
-        output_steps : Number of future steps to predict (12 = next 6h)
-
-    Returns:
-        X : Array of input sequences [samples, input_steps]
-        y : Array of output sequences [samples, output_steps]
-    """
     X, y = [], []
 
     meters = df['MeterID'].unique()
