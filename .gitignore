@@ -1,5 +1,38 @@
+# === Python cache ===
 __pycache__/
-*.pyc
-*.pkl
+*.py[cod]
+*.pyo
+
+# === Jupyter Notebook checkpoints ===
+.ipynb_checkpoints/
+
+# === Virtual environment folders ===
+venv/
+env/
+ENV/
+.venv/
+
+# === OS / Editor junk ===
+.DS_Store
+Thumbs.db
+
+# === VSCode settings (optional) ===
+.vscode/
+
+# === Large data files ===
+*.npy
+*.npz
 *.h5
-.env
+*.csv
+
+# === Logs ===
+*.log
+
+# === Model tuning outputs ===
+tuner_dir/
+
+# === Colab config files ===
+.colab/
+
+# === Any secrets or API keys ===
+*.env
