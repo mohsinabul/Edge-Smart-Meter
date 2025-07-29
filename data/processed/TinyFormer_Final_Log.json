@@ -1,0 +1,27 @@
+{
+    "model_name": "TinyFormer_Final",
+    "task": "Smart Meter Energy Forecasting",
+    "tuning_type": "BayesianOptimization",
+    "test_mae": 0.14250290734575785,
+    "test_rmse": 0.25649410970232656,
+    "test_r2": 0.30709414813149244,
+    "params": 9960,
+    "model_size_mb": 0.17392,
+    "inference_time_ms": 25.893600000017614,
+    "training_time_minutes": 9.68,
+    "input_shape": [
+        48,
+        1
+    ],
+    "patch_size": 12,
+    "hidden_dim": 64,
+    "num_heads": 3,
+    "dropout": 0.0,
+    "learning_rate": 0.0006094919159605681,
+    "system_info": {
+        "platform": "Windows",
+        "platform_version": "10.0.22631",
+        "processor": "AMD64 Family 23 Model 49 Stepping 0, AuthenticAMD",
+        "gpu_used": "Tesla T4"
+    }
+}

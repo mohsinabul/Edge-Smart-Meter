@@ -1,0 +1,20 @@
+{
+    "model": "LSTM",
+    "task": "Smart Meter Energy Forecasting",
+    "tuning_type": "BayesianOptimization",
+    "tuning_time_minutes": 28.38,
+    "best_hyperparameters": {
+        "units": 96,
+        "dropout": 0.30000000000000004,
+        "learning_rate": 0.001
+    },
+    "total_params": 38796,
+    "input_shape": [
+        48,
+        1
+    ],
+    "sequence_length": 48,
+    "gpu_used": "Tesla T4",
+    "platform": "Windows-10-10.0.22631-SP0",
+    "log_type": "Tuning"
+}

@@ -1,0 +1,21 @@
+{
+    "model": "LiteFormer",
+    "task": "Smart Meter Energy Forecasting",
+    "tuning_type": "BayesianOptimization",
+    "tuning_time_minutes": 9.14,
+    "best_hyperparameters": {
+        "patch_size": 12,
+        "hidden_dim": 128,
+        "dropout": 0.15000000000000002,
+        "learning_rate": 0.001103085375575755
+    },
+    "total_params": 24716,
+    "input_shape": [
+        48,
+        1
+    ],
+    "patch_size": 12,
+    "gpu_used": "Tesla T4",
+    "platform": "Windows-10-10.0.22631-SP0",
+    "log_type": "Tuning"
+}

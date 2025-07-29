@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['src\\1_data_exploration_&_cleaning.py', 'src\\02_eda.py', 'src\\03_data_windowing.py', 'src\\04_train_liteformer.py', '..\\..\\..\\..\\.spyder-py3\\autosave\\04_train_liteformer.py']
+recent_files = ['src\\04(b)_Train_LSTM.py']
 
 [main]
 version = 0.2.0
