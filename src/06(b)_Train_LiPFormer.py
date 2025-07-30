@@ -111,6 +111,9 @@ def build_lipformer(hp_dict):
 
 # Training the model
 model = build_lipformer(best_hps)
+callbacks = [
+    keras.callbacks.EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
+]
 
 start_time = time.time()
 with tf.device('/GPU:0'):
@@ -119,13 +122,11 @@ with tf.device('/GPU:0'):
         validation_data=(X_val, y_val),
         epochs=50,
         batch_size=512,
-        callbacks=[
-            keras.callbacks.EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
-        ],
+        callbacks=callbacks,
         verbose=1
     )
 end_time = time.time()
-train_time = end_time - start_time
+
 
 # Saving training history
 hist_df = pd.DataFrame(history.history)
@@ -153,9 +154,22 @@ test_rmse = np.sqrt(mse)
 test_r2 = r2_score(y_test, y_pred)
 
 # Model size
-model.save(os.path.join(DATA_DIR, 'Final_LipFormer_Model.h5'))
+SAVEDMODEL_PATH = os.path.join(DATA_DIR, 'Final_LiPFormer_Model')
+model.save(SAVEDMODEL_PATH, save_format='tf')  # TensorFlow SavedModel format
+
 params = model.count_params()
-size_mb = os.path.getsize(os.path.join(DATA_DIR, 'Final_LipFormer_Model.h5')) / 1e6
+
+# calculating directory size
+def get_dir_size_mb(path):
+    total_size = 0
+    for dirpath, dirnames, filenames in os.walk(path):
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            if os.path.isfile(fp):
+                total_size += os.path.getsize(fp)
+    return total_size / 1e6  
+
+size_mb = get_dir_size_mb(SAVEDMODEL_PATH)
 
 # Inference latency
 import timeit

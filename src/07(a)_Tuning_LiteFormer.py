@@ -39,45 +39,52 @@ y_train_small = y_train[:int(subset_frac * len(y_train))]
 X_val_small   = X_val[:int(subset_frac * len(X_val))]
 y_val_small   = y_val[:int(subset_frac * len(y_val))]
 
-# Patch Slicing
-
+# Patch slicer
 def slice_patches(inputs, patch_size):
     feat_dim = inputs.shape[2]
     num_patches = inputs.shape[1] // patch_size
     trimmed = inputs[:, :num_patches * patch_size, :]
     return tf.reshape(trimmed, [-1, num_patches, patch_size * feat_dim])
 
-# Model Builder
-
+# Model builder (Updated to match final training architecture)
 def build_liteformer(hp):
     inputs = keras.Input(shape=input_shape)
     patch_size = hp.Choice('patch_size', [4, 6, 8, 12])
-    x = layers.Lambda(lambda t: slice_patches(t, patch_size))(inputs)
-
     hidden_dim = hp.Int('hidden_dim', 32, 128, step=16)
     dropout = hp.Float('dropout', 0.0, 0.3, step=0.05)
+    learning_rate = hp.Float('learning_rate', 1e-4, 5e-3, sampling='log')
+
+    x = layers.Lambda(lambda t: slice_patches(t, patch_size))(inputs)
+    x = layers.Dense(hidden_dim)(x)
+
+    num_patches = input_shape[0] // patch_size
+    pos_embed = layers.Embedding(input_dim=num_patches, output_dim=hidden_dim)
+    positions = tf.range(start=0, limit=num_patches, delta=1)
+    pos_encoding = pos_embed(positions)
+    x = x + pos_encoding
+
+    x = layers.Dense(hidden_dim, activation='gelu')(x)
+    x = layers.Dropout(dropout)(x)
 
     q = layers.Dense(hidden_dim)(x)
     k = layers.Dense(hidden_dim)(x)
     v = layers.Dense(hidden_dim)(x)
-
-    scores = tf.matmul(q, k, transpose_b=True)
-    scores /= tf.math.sqrt(tf.cast(hidden_dim, tf.float32))
-    attn_weights = tf.nn.softmax(scores, axis=-1)
+    attn_weights = tf.nn.softmax(tf.matmul(q, k, transpose_b=True) / tf.math.sqrt(tf.cast(hidden_dim, tf.float32)), axis=-1)
     attn_output = tf.matmul(attn_weights, v)
     attn_output = layers.Dropout(dropout)(attn_output)
 
-    x_proj = layers.Dense(hidden_dim)(x)
-    x = layers.Add()([x_proj, attn_output])
-    x = layers.Dense(hidden_dim, activation='relu')(x)
+    x = layers.Add()([x, attn_output])
+    x = layers.LayerNormalization(epsilon=1e-6)(x)
+    x = layers.Dense(hidden_dim * 2, activation='gelu')(x)
+    x = layers.Dense(hidden_dim)(x)
+    x = layers.LayerNormalization(epsilon=1e-6)(x)
+
     x = layers.GlobalAveragePooling1D()(x)
     outputs = layers.Dense(12)(x)
 
     model = keras.Model(inputs, outputs)
     model.compile(
-        optimizer=keras.optimizers.Adam(
-            learning_rate=hp.Float('learning_rate', 1e-4, 5e-3, sampling='log')
-        ),
+        optimizer=keras.optimizers.Adam(learning_rate=learning_rate),
         loss='mse',
         metrics=['mae']
     )
