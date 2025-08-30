@@ -44,7 +44,7 @@ On the edge test, all models met the 1s p95 latency requirement. TinyFormer and 
 
 # Installation & Usage
 1. Clone the repo
-git clone https://github.com/mohsinabul/EdgeMeter_AI.git
+git clone https://github.com/mohsinabul/Edge-Smart-Meter.git
 cd EdgeMeter_AI
 
 2. Local training environment
