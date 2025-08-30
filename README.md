@@ -8,13 +8,13 @@ This project explores how modern machine learning models can be applied to forec
 
 We designed, trained, and evaluated four models:
 
-LSTM — a recurrent baseline for sequential data
+LSTM - a recurrent baseline for sequential data
 
-TinyFormer — lightweight Transformer with patching
+TinyFormer - lightweight Transformer with patching
 
-LiPFormer — linear-attention Transformer
+LiPFormer - linear-attention Transformer
 
-LiteFormer — efficient hybrid Transformer
+LiteFormer - efficient hybrid Transformer
 
 The work was done in two stages:
 
@@ -78,7 +78,7 @@ docker build -t edgemeter:latest .
 docker compose up -d
 
 
-Dashboard: http://localhost:8501
+Live Dashboard: https://edgemeter.duckdns.org
 
 Run on Azure VM
 
