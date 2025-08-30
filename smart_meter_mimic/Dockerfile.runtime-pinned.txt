@@ -1,0 +1,31 @@
+# Dockerfile.runtime-pinned
+FROM python:3.9-slim
+WORKDIR /app
+
+# Needed by some tflite wheels
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 && rm -rf /var/lib/apt/lists/*
+
+# IMPORTANT: pin NumPy < 2 and pick a TFLite runtime that matches your converter
+# Start with 2.17.0 (works with models exported by TF 2.17.x). If your model was
+# exported with an older TF, change to 2.14.0. Keep numpy==1.26.4.
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# App code
+COPY mimic_tflite.py app.py /app/
+
+# Runtime folders (we mount model/data/logs at runtime)
+RUN mkdir -p /app/model /app/data /app/logs
+
+# Environment defaults (override in compose)
+ENV LOG_DIR=/app/logs \
+    LOG_CSV=/app/logs/live_predictions.csv \
+    STATE_JSON=/app/logs/offset.json \
+    TIMEZONE=Europe/Dublin \
+    SLEEP_SECONDS=1800 \
+    HORIZON=12 \
+    REFRESH_MS=120000 \
+    TFLITE_PATH=/app/model/model.tflite
+
+EXPOSE 8501
+CMD bash -c "python /app/mimic_tflite.py & streamlit run /app/app.py --server.port 8501 --server.address 0.0.0.0"

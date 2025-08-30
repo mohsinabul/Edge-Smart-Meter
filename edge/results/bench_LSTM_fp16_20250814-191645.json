@@ -1,0 +1,16 @@
+{
+  "model_path": "/models/LSTM/LSTM_fp16.tflite",
+  "tag": "bench_LSTM_fp16",
+  "runs": 500,
+  "warmup": 50,
+  "threads": 1,
+  "subset": 5000,
+  "lat_ms_mean": 0.6968000300030326,
+  "lat_ms_p50": 0.6753259999641159,
+  "lat_ms_p95": 0.8871710001585598,
+  "lat_ms_min": 0.4981269999007054,
+  "lat_ms_max": 1.6989139999168401,
+  "rss_mb_max": 63.645,
+  "cpu_util_pct_appx": 95.0,
+  "ts": 1755199005
+}

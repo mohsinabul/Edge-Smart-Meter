@@ -1,0 +1,25 @@
+{
+    "model_name": "LSTM_Final",
+    "task": "Smart Meter Energy Forecasting",
+    "tuning_type": "BayesianOptimization",
+    "test_mae": 0.11189381329402588,
+    "test_rmse": 0.21175618635566582,
+    "test_r2": 0.5277353745081843,
+    "params": 38796,
+    "model_size_mb": 1.235844,
+    "inference_time_ms": 52.783999999974185,
+    "training_time_minutes": 29.99,
+    "input_shape": [
+        48,
+        1
+    ],
+    "units": 96,
+    "dropout": 0.30000000000000004,
+    "learning_rate": 0.001,
+    "system_info": {
+        "platform": "Windows",
+        "platform_version": "10.0.22631",
+        "processor": "AMD64 Family 23 Model 49 Stepping 0, AuthenticAMD",
+        "gpu_used": "Tesla T4"
+    }
+}

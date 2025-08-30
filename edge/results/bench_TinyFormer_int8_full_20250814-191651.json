@@ -1,0 +1,16 @@
+{
+  "model_path": "/models/TinyFormer/TinyFormer_int8_full.tflite",
+  "tag": "bench_TinyFormer_int8_full",
+  "runs": 500,
+  "warmup": 50,
+  "threads": 1,
+  "subset": 5000,
+  "lat_ms_mean": 0.019523916006619402,
+  "lat_ms_p50": 0.017364000086672604,
+  "lat_ms_p95": 0.03230799984521582,
+  "lat_ms_min": 0.01443900009689969,
+  "lat_ms_max": 0.10046000033980818,
+  "rss_mb_max": 50.02,
+  "cpu_util_pct_appx": 102.1,
+  "ts": 1755199011
+}

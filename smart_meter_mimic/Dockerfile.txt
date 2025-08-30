@@ -1,0 +1,36 @@
+# Dockerfile
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# System deps (tflite-runtime often needs libgomp)
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 && rm -rf /var/lib/apt/lists/*
+
+# Use the exact versions that worked for you locally
+COPY requirements.lock /app/requirements.lock
+RUN pip install --no-cache-dir -r /app/requirements.lock
+
+# App code
+COPY mimic_tflite.py app.py /app/
+
+# Model + demo arrays (baked in for portability)
+# Adjust the filenames to the ones you actually use
+COPY model/ /app/model/
+COPY data/ /app/data/
+
+# Default env (you can override at docker run time)
+ENV LOG_DIR=/app/logs \
+    LOG_CSV=/app/logs/live_predictions.csv \
+    STATE_JSON=/app/logs/offset.json \
+    TIMEZONE=Europe/Dublin \
+    SLEEP_SECONDS=1800 \
+    HORIZON=12 \
+    REFRESH_MS=120000 \
+    TFLITE_PATH=/app/model/Final_LiPFormer_Model_48_12_int8.tflite
+
+RUN mkdir -p /app/logs
+
+EXPOSE 8501
+
+# Start producer + dashboard
+CMD bash -c "python /app/mimic_tflite.py & streamlit run /app/app.py --server.port 8501 --server.address 0.0.0.0"

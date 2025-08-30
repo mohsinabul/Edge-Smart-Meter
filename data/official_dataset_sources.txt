@@ -1,0 +1,5 @@
+1. Low Carbon London smart meter data (refactored)
+https://data.4tu.nl/datasets/fbbe775b-48d8-469f-a39b-b64488bfd6fd
+
+2. Original SmartMeter Energy Consumption Data in London Households
+https://data.london.gov.uk/dataset/smartmeter-energy-use-data-in-london-households/

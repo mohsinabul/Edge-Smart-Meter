@@ -1,0 +1,16 @@
+{
+  "model_path": "/models/TinyFormer/TinyFormer_fp16.tflite",
+  "tag": "bench_TinyFormer_fp16",
+  "runs": 500,
+  "warmup": 50,
+  "threads": 1,
+  "subset": 5000,
+  "lat_ms_mean": 0.017469109980083886,
+  "lat_ms_p50": 0.013216000297688879,
+  "lat_ms_p95": 0.03477200016277493,
+  "lat_ms_min": 0.011915000413864618,
+  "lat_ms_max": 0.2397690000179864,
+  "rss_mb_max": 50.227,
+  "cpu_util_pct_appx": 36.7,
+  "ts": 1755199010
+}

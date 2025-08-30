@@ -1,0 +1,16 @@
+{
+  "model_path": "/models/LiPFormer/LiPFormer_fp16.tflite",
+  "tag": "bench_LiPFormer_fp16",
+  "runs": 500,
+  "warmup": 50,
+  "threads": 1,
+  "subset": 5000,
+  "lat_ms_mean": 0.01886071200169681,
+  "lat_ms_p50": 0.017129000298155006,
+  "lat_ms_p95": 0.02880000010918593,
+  "lat_ms_min": 0.015814000107639004,
+  "lat_ms_max": 0.10934600004475215,
+  "rss_mb_max": 50.348,
+  "cpu_util_pct_appx": 76.8,
+  "ts": 1755199013
+}

@@ -1,0 +1,16 @@
+{
+  "model_path": "/models/LSTM/LSTM_int8_dynamic.tflite",
+  "tag": "bench_LSTM_int8_dynamic",
+  "runs": 500,
+  "warmup": 50,
+  "threads": 1,
+  "subset": 5000,
+  "lat_ms_mean": 0.15498643801311118,
+  "lat_ms_p50": 0.14062900027056457,
+  "lat_ms_p95": 0.2251119999527873,
+  "lat_ms_min": 0.12211300008857506,
+  "lat_ms_max": 0.44428299997889553,
+  "rss_mb_max": 54.582,
+  "cpu_util_pct_appx": 85.1,
+  "ts": 1755199006
+}

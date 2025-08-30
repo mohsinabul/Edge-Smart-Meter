@@ -1,0 +1,16 @@
+{
+  "model_path": "/models/LiteFormer/LiteFormer_fp16.tflite",
+  "tag": "bench_LiteFormer_fp16",
+  "runs": 500,
+  "warmup": 50,
+  "threads": 1,
+  "subset": 5000,
+  "lat_ms_mean": 0.015337952017034695,
+  "lat_ms_p50": 0.012564999906317098,
+  "lat_ms_p95": 0.027492999834066723,
+  "lat_ms_min": 0.010632000339683145,
+  "lat_ms_max": 0.10541300025579403,
+  "rss_mb_max": 50.098,
+  "cpu_util_pct_appx": 41.2,
+  "ts": 1755199017
+}

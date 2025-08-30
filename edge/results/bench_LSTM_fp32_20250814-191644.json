@@ -1,0 +1,16 @@
+{
+  "model_path": "/models/LSTM/LSTM_fp32.tflite",
+  "tag": "bench_LSTM_fp32",
+  "runs": 500,
+  "warmup": 50,
+  "threads": 1,
+  "subset": 5000,
+  "lat_ms_mean": 0.7112149139929898,
+  "lat_ms_p50": 0.6730399995831249,
+  "lat_ms_p95": 0.9533810002722021,
+  "lat_ms_min": 0.5260860002636036,
+  "lat_ms_max": 2.1738220002589514,
+  "rss_mb_max": 63.812,
+  "cpu_util_pct_appx": 92.1,
+  "ts": 1755199004
+}

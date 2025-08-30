@@ -1,0 +1,33 @@
+{
+    "model_name": "LiPFormer_Final_48_12",
+    "task": "Smart Meter Energy Forecasting",
+    "tuning_type": "BayesianOptimization",
+    "test_mae": 0.10908066481351852,
+    "test_rmse": 0.21530895152718263,
+    "test_r2": 0.6683959364891052,
+    "params": 113516,
+    "model_size_mb_savedmodel": 1.064707,
+    "model_size_mb_h5": 1.438192,
+    "model_size_mb_keras": 1.442719,
+    "inference_time_ms": 831.9756529999722,
+    "training_time_minutes": 29.49,
+    "input_shape": [
+        48,
+        11
+    ],
+    "patch_size": 12,
+    "embed_dim": 96,
+    "use_mha": true,
+    "num_heads": 4,
+    "key_dim": 48,
+    "attn_dropout": 0.1,
+    "ff_dim": 128,
+    "ff_dropout": 0.1,
+    "learning_rate": 0.0001,
+    "system_info": {
+        "platform": "Linux",
+        "platform_version": "#1 SMP PREEMPT_DYNAMIC Sun Mar 30 16:01:29 UTC 2025",
+        "processor": "x86_64",
+        "gpu_used": "NVIDIA A100-SXM4-40GB"
+    }
+}

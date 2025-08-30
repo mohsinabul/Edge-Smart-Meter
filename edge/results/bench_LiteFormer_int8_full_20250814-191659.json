@@ -1,0 +1,16 @@
+{
+  "model_path": "/models/LiteFormer/LiteFormer_int8_full.tflite",
+  "tag": "bench_LiteFormer_int8_full",
+  "runs": 500,
+  "warmup": 50,
+  "threads": 1,
+  "subset": 5000,
+  "lat_ms_mean": 0.01867249999759224,
+  "lat_ms_p50": 0.017286999991483754,
+  "lat_ms_p95": 0.029074000394757604,
+  "lat_ms_min": 0.016057999800977996,
+  "lat_ms_max": 0.09108599988394417,
+  "rss_mb_max": 50.27,
+  "cpu_util_pct_appx": 77.8,
+  "ts": 1755199019
+}

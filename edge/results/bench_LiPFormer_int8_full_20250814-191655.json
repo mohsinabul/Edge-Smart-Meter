@@ -1,0 +1,16 @@
+{
+  "model_path": "/models/LiPFormer/LiPFormer_int8_full.tflite",
+  "tag": "bench_LiPFormer_int8_full",
+  "runs": 500,
+  "warmup": 50,
+  "threads": 1,
+  "subset": 5000,
+  "lat_ms_mean": 0.021264408004753932,
+  "lat_ms_p50": 0.021715999992011348,
+  "lat_ms_p95": 0.025023000034707366,
+  "lat_ms_min": 0.01718400017125532,
+  "lat_ms_max": 0.06380000013450626,
+  "rss_mb_max": 49.918,
+  "cpu_util_pct_appx": 73.6,
+  "ts": 1755199015
+}

@@ -1,0 +1,27 @@
+{
+    "model_name": "LSTM_Final_48_12",
+    "task": "Smart Meter Energy Forecasting",
+    "tuning_type": "BayesianOptimization",
+    "test_mae": 0.1054486632347107,
+    "test_rmse": 0.21601781826733862,
+    "test_r2": 0.6662095785140991,
+    "params": 73228,
+    "model_size_mb_savedmodel": 0.647425,
+    "model_size_mb_h5": 0.90544,
+    "model_size_mb_keras": 0.904631,
+    "inference_time_ms": 93.41579800002364,
+    "training_time_minutes": 47.38,
+    "input_shape": [
+        48,
+        11
+    ],
+    "units": 128,
+    "dropout": 0.1,
+    "learning_rate": 0.0001,
+    "system_info": {
+        "platform": "Linux",
+        "platform_version": "#1 SMP PREEMPT_DYNAMIC Sun Mar 30 16:01:29 UTC 2025",
+        "processor": "x86_64",
+        "gpu_used": "NVIDIA A100-SXM4-40GB"
+    }
+}

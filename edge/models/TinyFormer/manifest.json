@@ -1,0 +1,32 @@
+{
+  "model": "TinyFormer",
+  "artifacts": [
+    {
+      "variant": "fp32",
+      "path": "/content/drive/MyDrive/EdgeMeter_AIv2/data/tflite/TinyFormer/TinyFormer_fp32.tflite",
+      "size_mb": 0.3034,
+      "has_flex": false
+    },
+    {
+      "variant": "fp16",
+      "path": "/content/drive/MyDrive/EdgeMeter_AIv2/data/tflite/TinyFormer/TinyFormer_fp16.tflite",
+      "size_mb": 0.1609,
+      "has_flex": false
+    },
+    {
+      "variant": "int8_dynamic",
+      "path": "/content/drive/MyDrive/EdgeMeter_AIv2/data/tflite/TinyFormer/TinyFormer_int8_dynamic.tflite",
+      "size_mb": 0.1019,
+      "has_flex": false
+    },
+    {
+      "variant": "int8_full",
+      "path": "/content/drive/MyDrive/EdgeMeter_AIv2/data/tflite/TinyFormer/TinyFormer_int8_full.tflite",
+      "size_mb": 0.1043,
+      "has_flex": false
+    }
+  ],
+  "notes": [
+    "All variants BUILTINS-only (Docker-safe)."
+  ]
+}

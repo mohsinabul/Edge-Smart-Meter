@@ -1,0 +1,28 @@
+{
+    "model_name": "LiteFormer_Final_48_12",
+    "task": "Smart Meter Energy Forecasting",
+    "tuning_type": "BayesianOptimization",
+    "test_mae": 0.10583394765853882,
+    "test_rmse": 0.2139117050868556,
+    "test_r2": 0.6726859211921692,
+    "params": 88716,
+    "model_size_mb_savedmodel": 0.850021,
+    "model_size_mb_h5": 1.165888,
+    "model_size_mb_keras": 1.152679,
+    "inference_time_ms": 759.893794999698,
+    "training_time_minutes": 50.92,
+    "input_shape": [
+        48,
+        11
+    ],
+    "patch_size": 12,
+    "hidden_dim": 96,
+    "dropout": 0.0,
+    "learning_rate": 0.0002050081613348783,
+    "system_info": {
+        "platform": "Linux",
+        "platform_version": "#1 SMP PREEMPT_DYNAMIC Sun Mar 30 16:01:29 UTC 2025",
+        "processor": "x86_64",
+        "gpu_used": "NVIDIA A100-SXM4-40GB"
+    }
+}

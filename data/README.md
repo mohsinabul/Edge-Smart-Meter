@@ -74,7 +74,7 @@ Data/
 
 ## Next Steps
 
-➡️ This structured and split data is now ready to be:
+This structured and split data is now ready to be:
 - Used in EDA (`02_eda.py`)
 - Transformed into windowed sequences for model training
 - Fed into on-device edge simulators for real-time forecasting

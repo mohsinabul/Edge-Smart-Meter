@@ -1,0 +1,24 @@
+{
+    "model_name": "LiteFormer_Final",
+    "test_mae": 0.11221060994200173,
+    "test_rmse": 0.21143431264991852,
+    "test_r2": 0.5291699242590426,
+    "params": 53452,
+    "model_size_mb": 1.188329,
+    "inference_time_ms": 29.226200000266545,
+    "training_time_minutes": 24.35,
+    "input_shape": [
+        48,
+        1
+    ],
+    "patch_size": 4,
+    "hidden_dim": 80,
+    "dropout": 0.1,
+    "learning_rate": 0.0012613079156979423,
+    "system_info": {
+        "platform": "Windows",
+        "platform_version": "10.0.22631",
+        "processor": "AMD64 Family 23 Model 49 Stepping 0, AuthenticAMD",
+        "gpu_used": "Tesla T4"
+    }
+}
